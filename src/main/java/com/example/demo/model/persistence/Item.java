@@ -1,14 +1,16 @@
 package com.example.demo.model.persistence;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "item")
-@Data
+@Getter
+@Setter
 public class Item {
 
 	@Id
@@ -46,10 +48,7 @@ public class Item {
 			return false;
 		Item other = (Item) obj;
 		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+			return other.id == null;
+		} else return id.equals(other.id);
 	}
 }

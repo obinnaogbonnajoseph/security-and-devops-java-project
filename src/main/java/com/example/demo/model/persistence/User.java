@@ -2,14 +2,16 @@ package com.example.demo.model.persistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "user")
-@Data
+@Getter
+@Setter
 public class User {
 
 	@Id
@@ -35,5 +37,4 @@ public class User {
 	@JoinColumn(name = "cart_id", referencedColumnName = "id")
 	@JsonIgnore
 	private Cart cart;
-	
 }
