@@ -45,7 +45,6 @@ public class JWTAuthenticationVerificationFilter extends BasicAuthenticationFilt
             String user = JWT.require(HMAC512(SecurityConstants.SECRET.getBytes())).build()
                     .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                     .getSubject();
-            System.out.println("*** user *** " + user);
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
             }

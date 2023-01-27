@@ -2,8 +2,8 @@ package com.example.demo.controllers;
 
 import com.example.demo.model.persistence.Item;
 import com.example.demo.model.persistence.repositories.ItemRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api/item")
 public class ItemController {
 
-	private static final Logger log = LoggerFactory.getLogger(ItemController.class);
+	private static final Logger log = LogManager.getLogger(ItemController.class);
 
 	@Autowired
 	private ItemRepository itemRepository;
